@@ -151,3 +151,26 @@ public class HelloServlet extends HttpServlet {
 
 - HTML 결과를 자바스크립트를 사용해 웹 브라우저에서 동적으로 생성해서 적용
 - 주로 동적인 화면에 사용, 웹 환경을 마치 앱 처럼 필요한 부분부분 변경
+
+## GET - 쿼리 파라미터
+
+- /url?username=hello&age=20
+- 메시지 바디 없이, URL의 쿼리 파라미터에 데이터를 포함해서 전달 예) 검색, 필터, 페이징등에서 많이 사용하는 방식
+
+## POST - HTML Form
+
+- content-type: application/x-www-form-urlencoded
+- 메시지 바디에 쿼리 파리미터 형식으로 전달 username=hello&age=20 예) 회원 가입, 상품 주문, HTML Form 사용
+
+## HTTP message body에 데이터를 직접 담아서 요청
+
+- HTTP API에서 주로 사용, JSON, XML, TEXT
+- 데이터 형식은 주로 JSON 사용
+- POST, PUT, PATCH
+
+## 스프링MVC는 @ModelAttribute 가 있으면 다음을 실행한다
+
+- HelloData 객체를 생성한다.
+- 요청 파라미터의 이름으로 HelloData 객체의 프로퍼티를 찾는다.
+- 그리고 해당 프로퍼티의 setter를 호출해서 파라미터의 값을 입력(바인딩) 한다.
+- 예) 파라미터 이름이 username 이면 setUsername() 메서드를 찾아서 호출하면서 값을 입력한다.
